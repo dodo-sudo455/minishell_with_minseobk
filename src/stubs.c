@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 12:35:59 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/01 12:36:00 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/01 12:39:53 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-char	*prom()
+char	*prom(void)
 {
 	return (NULL);
 }
