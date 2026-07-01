@@ -12,7 +12,7 @@ int main(void)
     {
         input = prom();
         cmdlst = parse(input);
-		exelst = prep(cmdlst);
+		exelst = prep(&cmdlst);
         exec(exelst);
     }
 }

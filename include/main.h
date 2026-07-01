@@ -1,13 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/01 12:32:40 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/01 12:34:31 by minseobk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MAIN_H
 # define MAIN_H
+# include "libft.h"
 # include <stdbool.h>
-
-typedef struct s_lst	t_lst;
-struct s_lst
-{
-	void	*data;
-	t_lst	*next;
-};
 
 /* ---------------------------------- */
 /* prom                               */

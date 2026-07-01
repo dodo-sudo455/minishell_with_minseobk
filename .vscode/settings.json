@@ -1,0 +1,9 @@
+{
+    "editor.tabSize": 4,
+    "editor.comments.insertSpace": false,
+    "files.associations": {
+        "test.h": "c",
+        "stdlib.h": "c",
+        "stdbool.h": "c"
+    },
+}
