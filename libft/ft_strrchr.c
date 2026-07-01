@@ -6,11 +6,11 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:33:11 by minseobk          #+#    #+#             */
-/*   Updated: 2026/06/14 17:40:07 by minseobk         ###   ########.fr       */
+/*   Updated: 2025/10/18 14:22:26 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "_libft.h"
+#include "libft.h"
 
 /*
 The strrchr() function returns a pointer to the last occurrence of

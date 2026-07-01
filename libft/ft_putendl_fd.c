@@ -6,11 +6,11 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:14:26 by minseobk          #+#    #+#             */
-/*   Updated: 2026/06/14 17:40:07 by minseobk         ###   ########.fr       */
+/*   Updated: 2025/10/07 14:02:28 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "_libft.h"
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

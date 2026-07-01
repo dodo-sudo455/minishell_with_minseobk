@@ -6,11 +6,11 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:16:10 by minseobk          #+#    #+#             */
-/*   Updated: 2026/06/14 17:40:07 by minseobk         ###   ########.fr       */
+/*   Updated: 2025/10/14 16:11:26 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "_libft.h"
+#include "libft.h"
 
 char	*ft_strmapi(
 	char const *s,

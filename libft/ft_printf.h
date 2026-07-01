@@ -6,13 +6,13 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 19:56:00 by minseobk          #+#    #+#             */
-/*   Updated: 2026/06/08 15:38:09 by minseobk         ###   ########.fr       */
+/*   Updated: 2025/11/19 14:56:47 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "_libft.h"
+# include "libft.h"
 # include <stdarg.h>
 # include <stdbool.h>
 # include <stddef.h>

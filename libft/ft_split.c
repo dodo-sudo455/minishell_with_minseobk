@@ -6,11 +6,11 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:15:30 by minseobk          #+#    #+#             */
-/*   Updated: 2026/06/14 17:40:07 by minseobk         ###   ########.fr       */
+/*   Updated: 2025/10/18 13:48:50 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "_libft.h"
+#include "libft.h"
 
 /*
 	find next position which is not `c` or `\0`

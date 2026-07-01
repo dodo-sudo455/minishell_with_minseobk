@@ -6,11 +6,11 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:33:02 by minseobk          #+#    #+#             */
-/*   Updated: 2026/06/14 17:40:07 by minseobk         ###   ########.fr       */
+/*   Updated: 2025/10/28 15:03:26 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "_libft.h"
+#include "libft.h"
 
 /*
 RETURN

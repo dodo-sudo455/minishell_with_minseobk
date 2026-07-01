@@ -1,53 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   def.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/01 12:32:40 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/01 14:16:29 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/01 14:35:21 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
-# include "libft.h"
-# include <stdbool.h>
+#ifndef DEF_H
+# define DEF_H
+
+typedef enum e_error	t_error;
+typedef struct s_ctx	t_ctx;
 
 /* ---------------------------------- */
-/* prep                               */
+/* ctx                                */
 /* ---------------------------------- */
 
-//	status: redir result, command not found ...
-struct s_exec
+struct s_ctx
 {
-	char	**args;
-	int		fd_in;
-	int		fd_out;
-	bool	status;
+	t_error		err;
 };
 
-t_lst	prep(const t_lst *exelst_ref);
-
 /* ---------------------------------- */
-/* exec                               */
+/* error                              */
 /* ---------------------------------- */
 
-void	exec(t_lst exelst);
+enum e_error
+{
+	ERROR_OK,
+	ERROR_INTERNAL,
+	ERROR_DEBUG,
+	ERROR_SYNTAX,
+};
 
-/*
-
-exec():
-	pid = fork();
-	if (pid == 0)
-	{
-		dup2();
-		dup2();
-		execve();
-	}
-	close(fd_in);
-	close(fd_out);
-*/
-
-#endif // MAIN_H
+#endif // DEF_H
