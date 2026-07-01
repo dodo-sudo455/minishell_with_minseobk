@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 12:32:40 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/01 12:41:14 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/01 13:33:02 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,6 @@
 # define MAIN_H
 # include "libft.h"
 # include <stdbool.h>
-
-/* ---------------------------------- */
-/* prom                               */
-/* ---------------------------------- */
-
-char	*prom(void);
-// 스트링 반환
-// -> 니가 알아서 exit()
-/**
-
-	prom():
-		signal(니가필요한거 하고싶은거 해)
-		while (1)
-			input = readline();
-			if (err?)
-				exit(1);
-			break ;
-		add_history();
-		return (input);
- */
 
 /* ---------------------------------- */
 /* parse                              */

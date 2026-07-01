@@ -12,9 +12,10 @@ BIN_DIR			:= bin
 INC_DIR			:= include
 
 CC				:= cc
-CFLAGS			:= -Wall -Wextra -Werror
+CFLAGS			:= -Wall -Wextra -Werror 
 CFLAGS			+= -I $(INC_DIR) -I libft
 CFLAGS			+= $(DBG)	# make DBG="-g"
+LDLIBS			:= -lreadline
 
 SRC_DIR			:= src
 SRC_CODES		:= $(shell find $(SRC_DIR) -name '*.c')
@@ -57,7 +58,7 @@ re: fclean all
 app: $(APP)
 
 $(APP): $(SRC_OBJS) $(APP_OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^ $(LDLIBS)
 
 #--------------------------------------#
 #- SRC --------------------------------#
