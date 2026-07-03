@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minseobk <minseobk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 16:29:01 by minseobk          #+#    #+#             */
-/*   Updated: 2025/10/05 13:45:20 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:37:39 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "_libft.h"
 
 static int	ft_isspace(int c)
 {

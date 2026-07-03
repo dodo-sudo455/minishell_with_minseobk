@@ -6,11 +6,11 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 16:14:04 by minseobk          #+#    #+#             */
-/*   Updated: 2025/10/14 14:39:25 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:37:39 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "_libft.h"
 
 int	ft_isdigit(int c)
 {

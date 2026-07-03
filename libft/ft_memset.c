@@ -6,11 +6,11 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:33:01 by minseobk          #+#    #+#             */
-/*   Updated: 2025/10/16 13:53:57 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:37:39 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "_libft.h"
 
 /*
 The memset() function fills the first n bytes of the memory area pointed to by

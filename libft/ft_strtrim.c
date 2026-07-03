@@ -6,11 +6,11 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 19:39:13 by minseobk          #+#    #+#             */
-/*   Updated: 2025/10/14 16:27:18 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:37:39 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "_libft.h"
 
 /* return the index of the leftmost valid char */
 static size_t	get_left_end(char const *s, char const *set)

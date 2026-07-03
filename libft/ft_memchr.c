@@ -6,11 +6,11 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:32:54 by minseobk          #+#    #+#             */
-/*   Updated: 2025/10/16 13:49:07 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:37:39 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "_libft.h"
 
 /*
 scans the initial n bytes of the memory area pointed by s

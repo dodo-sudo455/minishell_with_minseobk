@@ -48,15 +48,10 @@ LIB_CODES		:= \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
-	ft_lstadd_back_bonus.c \
-	ft_lstadd_front_bonus.c \
-	ft_lstclear_bonus.c \
-	ft_lstdelone_bonus.c \
-	ft_lstiter_bonus.c \
-	ft_lstlast_bonus.c \
-	ft_lstmap_bonus.c \
-	ft_lstnew_bonus.c \
-	ft_lstsize_bonus.c \
+	ft_lst.c \
+	ft_lst2.c \
+	ft_lst_mut.c \
+	ft_lst_mut2.c \
 	get_next_line.c \
 	get_next_line_utils.c \
 	ft_printf_read.c \
@@ -110,4 +105,4 @@ $(BIN_DIR):
 	@mkdir $(BIN_DIR)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
