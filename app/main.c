@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 12:40:19 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/01 14:15:20 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/02 16:57:15 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,24 @@
 #include <stdbool.h>
 #include "main.h"
 #include "prom.h"
+#include "parse.h"
+#include "exec.h"
 
-int	main(void)
+int	main(int argc, char **argv, char **envp)
 {
+	t_ctx	ctx;
 	char	*input;
-	t_lst	cmdlst;
+	t_list	*toklst;
 	//t_lst	exelst;
 
+	if (ctx_init(&ctx, envp) != ERROR_OK)
+		return (geterr(&ctx));
 	while (true)
 	{
 		input = prom();
-		cmdlst = parse(input);
+		if (parse(&ctx, input, &toklst) != ERROR_OK)
+			return (free(input), geterr(&ctx));
 		free(input);
-		//exelst = prep(&cmdlst);
-		//exec(exelst);
+		if (exec(&ctx, ))
 	}
 }

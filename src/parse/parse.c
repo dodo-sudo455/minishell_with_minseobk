@@ -6,13 +6,21 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:17:07 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/01 14:35:38 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/02 16:37:04 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-t_error	parse(t_ctx *c_ref, const char *input, t_lst *lst_ref)
+t_error	parse(t_ctx *c_ref, const char *input, t_list **toklst_ref)
 {
-	
+	if (parse_tokenize(c_ref, input, toklst_ref) != ERROR_OK)
+		return (toklst_clear(toklst_ref), geterr(c_ref));
+	if (!parse_is_syntax_ok(*toklst_ref))
+		return (toklst_clear(toklst_ref), geterr(c_ref));
+	if (parse_expand(c_ref, toklst_ref) != ERROR_OK)
+		return (toklst_clear(toklst_ref), geterr(c_ref));
+	if (parse_quote(c_ref, toklst_ref) != ERROR_OK)
+		return (toklst_clear(toklst_ref), geterr(c_ref));
+	return (ERROR_OK);
 }

@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/01 12:32:40 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/02 16:39:09 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/02 16:38:14 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/02 16:38:30 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
-# include "libft.h"
-# include <stdbool.h>
+#include "exec.h"
 
-
-#endif // MAIN_H
+t_error	exec(t_ctx *c_ref, t_list *tok_ref)
+{
+	
+}

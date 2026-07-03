@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   lib.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/01 12:32:40 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/02 16:39:09 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/02 15:08:59 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/02 15:28:53 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef LIB_H
+# define LIB_H
 # include "libft.h"
-# include <stdbool.h>
 
+char	**ft_lst_to_arr(const t_list *lst_ref);
 
-#endif // MAIN_H
+#endif // LIB_H
