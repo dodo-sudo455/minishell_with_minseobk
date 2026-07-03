@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:15:38 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/02 16:36:06 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:45:42 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ struct s_token
 };
 
 t_token	token_make(char *s);
-void	toklst_clear(t_list **lst_ref);
+void	toklst_clear(t_lst **lst_ref);
 
 /* ---------------------------------- */
 /* parse                              */
 /* ---------------------------------- */
 
-t_error	parse(t_ctx *c_ref, const char *input, t_list **toklst_ref);
-t_error	parse_tokenize(t_ctx *c_ref, const char *input, t_list **toklst_ref);
-bool	parse_is_syntax_ok(const t_list *toklst_ref);
-t_error	parse_expand(t_ctx *c_ref, t_list **toklst_ref);
-t_error	parse_quote(t_ctx *c_ref, t_list **toklst_ref);
+t_error	parse(t_ctx *c_ref, const char *input, t_lst **toklst_ref);
+t_error	parse_tokenize(t_ctx *c_ref, const char *input, t_lst **toklst_ref);
+bool	parse_is_syntax_ok(const t_lst *toklst_ref);
+t_error	parse_expand(t_ctx *c_ref, t_lst **toklst_ref);
+t_error	parse_quote(t_ctx *c_ref, t_lst **toklst_ref);
 
 #endif // PARSE_H

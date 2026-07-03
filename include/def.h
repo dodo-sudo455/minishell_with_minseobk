@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/02 16:42:09 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:45:48 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ struct s_ctx
 	t_error		err;
 	char		*input;
 	char		**envp;
-	t_list		envlst;
+	t_lst		envlst;
 	int			hdoc;
 };
 

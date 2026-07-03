@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 14:18:20 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/03 14:31:47 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/03 15:45:56 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 /* exec                               */
 /* ---------------------------------- */
 
-t_error	exec(t_ctx *c_ref, t_list *toklst_ref);
-t_error	exec_cmd(t_ctx *c_ref, t_list *toklst_ref,
-			int fd[2], t_list *arglst_ref);
+t_error	exec(t_ctx *c_ref, t_lst *toklst_ref);
+t_error	exec_cmd(t_ctx *c_ref, t_lst *toklst_ref,
+			int fd[2], t_lst *arglst_ref);
 t_error	exec_redir(t_ctx *c_ref, t_tokentype t, char *s);
-t_error	exec_run(t_ctx*c_ref, int fd[2], t_list *arglst_ref);
+t_error	exec_run(t_ctx*c_ref, int fd[2], t_lst *arglst_ref);
 
 /*
 exec():
