@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/03 15:45:48 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/03 16:23:38 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ struct s_ctx
 	char		*input;
 	char		**envp;
 	t_lst		envlst;
-	int			hdoc;
+	t_lst		hdoclst;
 };
 
 t_ctx	ctx_make(void);

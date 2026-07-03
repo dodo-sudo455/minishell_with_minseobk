@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:15:38 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/03 15:45:42 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/03 16:02:04 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void	toklst_clear(t_lst **lst_ref);
 /* parse                              */
 /* ---------------------------------- */
 
-t_error	parse(t_ctx *c_ref, const char *input, t_lst **toklst_ref);
-t_error	parse_tokenize(t_ctx *c_ref, const char *input, t_lst **toklst_ref);
+t_error	parse(t_ctx *c_ref, const char *input, t_lst *toklst_ref);
+t_error	parse_tokenize(t_ctx *c_ref, const char *input, t_lst *toklst_ref);
 bool	parse_is_syntax_ok(const t_lst *toklst_ref);
-t_error	parse_expand(t_ctx *c_ref, t_lst **toklst_ref);
-t_error	parse_quote(t_ctx *c_ref, t_lst **toklst_ref);
+t_error	parse_expand(t_ctx *c_ref, t_lst *toklst_ref);
+t_error	parse_quote(t_ctx *c_ref, t_lst *toklst_ref);
 
 #endif // PARSE_H

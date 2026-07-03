@@ -6,13 +6,15 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 16:38:14 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/02 16:38:30 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/03 16:34:08 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exec.h"
 
-t_error	exec(t_ctx *c_ref, t_list *tok_ref)
+t_error	exec(t_ctx *c_ref, t_lst *toklst_ref)
 {
+	t_cmd	cmd;
+
 	
 }
