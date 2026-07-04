@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:15:38 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/04 17:39:48 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/04 17:45:36 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_token		t_token;
 /* ---------------------------------- */
 
 t_error	parse(t_ctx *c_ref, const char *input, t_lst *toklst_ref);
+t_error	parse_is_quote_ok(t_ctx *c_ref, const char *input);
 t_error	parse_tokenize(t_ctx *c_ref, const char *input, t_lst *toklst_ref);
 // expand token only with WORD
 t_error	parse_expand(t_ctx *c_ref, t_lst *toklst_ref);
