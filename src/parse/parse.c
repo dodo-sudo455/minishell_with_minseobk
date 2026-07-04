@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:17:07 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/03 16:04:51 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/04 14:40:50 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 t_error	parse(t_ctx *c_ref, const char *input, t_lst *toklst_ref)
 {
 	if (parse_tokenize(c_ref, input, toklst_ref) != ERROR_OK)
-		return (toklst_clear(toklst_ref), geterr(c_ref));
-	if (!parse_is_syntax_ok(toklst_ref))
 		return (toklst_clear(toklst_ref), geterr(c_ref));
 	if (parse_expand(c_ref, toklst_ref) != ERROR_OK)
 		return (toklst_clear(toklst_ref), geterr(c_ref));

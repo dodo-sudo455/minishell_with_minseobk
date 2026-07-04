@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:15:38 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/03 16:02:04 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/04 17:39:48 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,37 +20,14 @@ typedef enum e_tokentype	t_tokentype;
 typedef struct s_token		t_token;
 
 /* ---------------------------------- */
-/* token                              */
-/* ---------------------------------- */
-
-enum e_tokentype
-{
-	TOKEN_WORD,
-	TOKEN_PIPE,
-	TOKEN_REDIR_IN,
-	TOKEN_REDIR_OUT,
-	TOKEN_REDIR_HDOC,
-	TOKEN_REDIR_APPEND,
-};
-
-struct s_token
-{
-	t_tokentype	t;
-	char		*s;
-	bool		has_quote;
-};
-
-t_token	token_make(char *s);
-void	toklst_clear(t_lst **lst_ref);
-
-/* ---------------------------------- */
 /* parse                              */
 /* ---------------------------------- */
 
 t_error	parse(t_ctx *c_ref, const char *input, t_lst *toklst_ref);
 t_error	parse_tokenize(t_ctx *c_ref, const char *input, t_lst *toklst_ref);
-bool	parse_is_syntax_ok(const t_lst *toklst_ref);
+// expand token only with WORD
 t_error	parse_expand(t_ctx *c_ref, t_lst *toklst_ref);
+// 1. check quote syntax, 2. remove quote
 t_error	parse_quote(t_ctx *c_ref, t_lst *toklst_ref);
 
 #endif // PARSE_H

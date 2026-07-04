@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 14:18:20 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/03 17:02:58 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/04 17:30:46 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ enum e_redirtype
 	REDIR_IN,
 	REDIR_OUT,
 	REDIR_HDOC,
-	REDIR_APPEND,
+	REDIR_APPEND
 };
 
 struct s_redir
@@ -48,39 +48,52 @@ t_error	exec(t_ctx *c_ref, t_lst *toklst_ref);
 t_error	exec_redir(t_ctx *c_ref, t_tokentype t, char *s);
 t_error	exec_run(t_ctx*c_ref, int fd[2], t_lst *arglst_ref);
 
-
 /*
 exec(toklst):
-
+	# ---------------------------------------------------------
+	# parse
+	# ---------------------------------------------------------
 	cmdlst := make_cmdlst()
 	cmd := make_cmd()
+
 	while (!is_empty(toklst)):
 		tok := toklst.pop()
 		if tok.type == TOKEN_REDIR:
 			next_tok := toklst.pop()
-			
-			if tok.type == TOKEN_REDIR_HDOC:
-				redir := handle_heredoc(tok.type, next_tok.str)
-			else
-				redir := make_redir(tok.type, next_tok.str)
-			
+			if next_tok.type != WORD:
+				panic()
+
+			redir := make_redir(tok.type, next_tok.str)
 			cmd.add_redir(redir)
 		
-		if tok.type == TOKEN_WORD:
+		elif tok.type == TOKEN_WORD:
 			cmd.add_arg(tok.str)
 		
-		if tok.type == TOKEN_PIPE:
+		elif tok.type == TOKEN_PIPE:
 			cmdlst.add(cmd)
 			cmd := make_cmd()
 
 	cmdlst.add(cmd)
 	
+	# ---------------------------------------------------------
+	# heredoc
+	# ---------------------------------------------------------
+	if not gather_all_heredocs(cmdlst):
+		unlink_hdoc(cmdlst)
+		set_exit_status(130)
+		return
+
+	# ---------------------------------------------------------
+	# exec
+	# ---------------------------------------------------------
 	for each cmd in cmdlst:
 		run_cmd(cmd)
 
-	wait_cmd()
+	# ---------------------------------------------------------
+	# clear
+	# ---------------------------------------------------------
+	wait_all_cmds()
 	unlink_hdoc(cmdlst)
-
 */
 
 #endif // EXEC_H
