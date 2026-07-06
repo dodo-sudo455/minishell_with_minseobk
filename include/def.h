@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/04 17:49:02 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:24:42 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 typedef enum e_error	t_error;
 typedef struct s_ctx	t_ctx;
 typedef struct s_env	t_env;
+typedef struct s_token	t_token;
 
 /* ---------------------------------- */
 /* ctx                                */
