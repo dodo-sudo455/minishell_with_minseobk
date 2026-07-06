@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   ctx2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 15:08:59 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 15:34:45 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/06 16:07:54 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/06 16:08:47 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
-# include "libft.h"
+#include "def.h"
 
-#endif // LIB_H
+t_error	geterr(t_ctx *c_ref)
+{
+	return (c_ref->err);
+}
+
+t_error	seterr(t_ctx *c_ref, t_error err)
+{
+	c_ref->err = err;
+	return (err);
+}

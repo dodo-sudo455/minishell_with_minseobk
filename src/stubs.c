@@ -5,38 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/01 12:35:59 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/01 13:53:12 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/06 15:59:32 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/06 16:00:22 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
-#include <unistd.h>
-#include <stdlib.h>
 
-t_lst	parse(const char *input)
+char	*ctx_expand(const t_ctx *c_ref, const char *key)
 {
-	t_lst	lst;
-
-	(void)input;
-	lst.head = NULL;
-	lst.tail = NULL;
-	lst.size = 0;
-	return (lst);
+	(void)c_ref;
+	(void)key;
+	return (NULL);
 }
 
-t_lst	prep(const t_lst *exelst_ref)
+t_error	parse_expand(t_ctx *c_ref, t_lst *toklst_ref)
 {
-	t_lst	lst;
-
-	(void)exelst_ref;
-	lst.head = NULL;
-	lst.tail = NULL;
-	lst.size = 0;
-	return (lst);
+	(void)c_ref;
+	(void)toklst_ref;
+	return (ERROR_OK);
 }
 
-void	exec(t_lst exelst)
+t_error	parse_quote(t_ctx *c_ref, t_lst *toklst_ref)
 {
-	(void)exelst;
+	(void)c_ref;
+	(void)toklst_ref;
+	return (ERROR_OK);
 }

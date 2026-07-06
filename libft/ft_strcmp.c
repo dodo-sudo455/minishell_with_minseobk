@@ -1,17 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 15:08:59 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 15:34:45 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/06 13:38:42 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/06 13:41:09 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
-# include "libft.h"
-
-#endif // LIB_H
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && *s2 && *s1 == *s2)
+	{
+		s1 += 1;
+		s2 += 1;
+	}
+	return (*s1 - *s2);
+}

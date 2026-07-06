@@ -5,33 +5,51 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/01 12:40:19 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 16:01:31 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/06 15:35:24 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/06 15:44:24 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <readline/readline.h>
-#include <stdbool.h>
-#include "main.h"
-#include "prom.h"
-#include "parse.h"
-#include "exec.h"
+#include "test.h"
 
-int	main(int argc, char **argv, char **envp)
+static char	*_join_args(int argc, char **argv)
 {
-	t_ctx	ctx;
 	char	*input;
-	t_lst	toklst;
+	char	*temp;
+	int		i;
 
-	(void)argc;
-	(void)argv;
-	if (ctx_init(&ctx, envp) != ERROR_OK)
-		return (geterr(&ctx));
-	while (true)
+	input = ft_strdup("");
+	i = 1;
+	while (i < argc)
 	{
-		input = prom();
-		if (parse(&ctx, input, &toklst) != ERROR_OK)
-			return (free(input), geterr(&ctx));
+		temp = ft_strjoin(input, argv[i]);
 		free(input);
+		input = temp;
+		if (i < argc - 1)
+		{
+			temp = ft_strjoin(input, " ");
+			free(input);
+			input = temp;
+		}
+		i++;
 	}
+	return (input);
+}
+
+int	main(int argc, char **argv)
+{
+	t_ctx	c;
+	t_lst	toklst;
+	char	*input;
+
+	if (argc < 2)
+		return (0);
+	input = _join_args(argc, argv);
+	c = ctx_make();
+	toklst = ft_lst_make();
+	parse_tokenize(&c, input, &toklst);
+	toklst_log(&toklst, 0);
+	free(input);
+	toklst_drop(&toklst);
+	return (0);
 }

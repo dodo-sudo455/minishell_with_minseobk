@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   token.c                                            :+:      :+:    :+:   */
+/*   token2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 16:29:44 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/02 16:33:23 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/06 13:49:19 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/06 14:02:51 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#include "def.h"
 
-t_token	token_make(char *s);
-
-static void	del(t_token *tok_ref)
+bool	token_is_redir(const t_token *tok_ref)
 {
-	free(tok_ref->s);
-	free(tok_ref);
+	return (tok_ref->t == TOKEN_REDIR_IN
+		|| tok_ref->t == TOKEN_REDIR_OUT
+		|| tok_ref->t == TOKEN_REDIR_HDOC
+		|| tok_ref->t == TOKEN_REDIR_APPEND);
 }
 
-void	toklst_clear(t_list **lst_ref)
+bool	token_is_meta(const t_token *tok_ref)
 {
-	ft_lstclear(lst_ref, del);
+	return (tok_ref->t != TOKEN_WORD);
+}
+
+bool	token_is_word(const t_token *tok_ref)
+{
+	return (tok_ref->t == TOKEN_WORD);
 }
