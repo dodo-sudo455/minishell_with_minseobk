@@ -5,33 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/01 12:40:19 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 16:01:31 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/06 16:10:50 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/06 16:14:39 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <readline/readline.h>
-#include <stdbool.h>
-#include "main.h"
-#include "prom.h"
-#include "parse.h"
-#include "exec.h"
+#include "test.h"
 
 int	main(int argc, char **argv, char **envp)
 {
 	t_ctx	ctx;
-	char	*input;
-	t_lst	toklst;
 
 	(void)argc;
 	(void)argv;
+	ctx_make();
 	if (ctx_init(&ctx, envp) != ERROR_OK)
-		return (geterr(&ctx));
-	while (true)
 	{
-		input = prom();
-		if (parse(&ctx, input, &toklst) != ERROR_OK)
-			return (free(input), geterr(&ctx));
-		free(input);
+		printf("ctx_init error\n");
+		return (1);
 	}
+	envlst_log(&ctx.envlst, 0);
+	ctx_drop(&ctx);
+	return (0);
 }

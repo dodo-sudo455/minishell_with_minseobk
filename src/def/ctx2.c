@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stubs.c                                            :+:      :+:    :+:   */
+/*   ctx2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/06 15:59:32 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 16:00:22 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/06 16:07:54 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/06 16:08:47 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "def.h"
 
-char	*ctx_expand(const t_ctx *c_ref, const char *key)
+t_error	geterr(t_ctx *c_ref)
 {
-	(void)c_ref;
-	(void)key;
-	return (NULL);
+	return (c_ref->err);
 }
 
-t_error	parse_expand(t_ctx *c_ref, t_lst *toklst_ref)
+t_error	seterr(t_ctx *c_ref, t_error err)
 {
-	(void)c_ref;
-	(void)toklst_ref;
-	return (ERROR_OK);
-}
-
-t_error	parse_quote(t_ctx *c_ref, t_lst *toklst_ref)
-{
-	(void)c_ref;
-	(void)toklst_ref;
-	return (ERROR_OK);
+	c_ref->err = err;
+	return (err);
 }

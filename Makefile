@@ -15,7 +15,7 @@ CC				:= cc
 CFLAGS			:= -Wall -Wextra -Werror 
 CFLAGS			+= -I $(INC_DIR) -I libft
 CFLAGS			+= $(DBG)	# make DBG="-g"
-LDLIBS			:= -lreadline
+LDLIBS			:= -lreadline -Llibft -lft
 
 SRC_DIR			:= src
 SRC_CODES		:= $(shell find $(SRC_DIR) -name '*.c')
@@ -41,11 +41,13 @@ all: app
 .PHONY: clean
 clean:
 	find . -name "*.o" -delete
+	$(MAKE) -C libft clean
 
 .PHONY: fclean
 fclean: clean
 	rm -f $(APP)
 	rm -f $(BIN_DIR)/*
+	$(MAKE) -C libft fclean
 
 .PHONY: re
 re: fclean all
@@ -57,8 +59,11 @@ re: fclean all
 .PHONY: app
 app: $(APP)
 
-$(APP): $(SRC_OBJS) $(APP_OBJS)
-	$(CC) $(CFLAGS) -o $@ $^ $(LDLIBS)
+libft/libft.a:
+	$(MAKE) -C libft
+
+$(APP): $(SRC_OBJS) $(APP_OBJS) libft/libft.a
+	$(CC) $(CFLAGS) -o $@ $(SRC_OBJS) $(APP_OBJS) $(LDLIBS)
 
 #--------------------------------------#
 #- SRC --------------------------------#
