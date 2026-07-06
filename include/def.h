@@ -6,12 +6,13 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 13:24:42 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:26:26 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEF_H
 # define DEF_H
+# include <stdbool.h>
 
 typedef enum e_error	t_error;
 typedef struct s_ctx	t_ctx;
