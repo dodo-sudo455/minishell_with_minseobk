@@ -6,13 +6,14 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 13:29:36 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:50:50 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEF_H
 # define DEF_H
 # include <stdbool.h>
+# include "libft.h"
 
 typedef enum e_error		t_error;
 typedef struct s_ctx		t_ctx;
@@ -81,10 +82,10 @@ struct s_token
 	bool		has_quote;
 };
 
-t_token	token_make(char *s);
+t_token	*token_make(const char *s);
 void	token_drop(t_token *tok_ref);
 bool	token_is_redir(const t_token *tok_ref);
 bool	token_is_meta(const t_token *tok_ref);
-void	toklst_clear(t_lst **lst_ref);
+void	toklst_drop(t_lst *lst_ref);
 
 #endif // DEF_H

@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   token.c                                            :+:      :+:    :+:   */
+/*   toklst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 16:29:44 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/02 16:33:23 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/06 13:49:36 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/06 13:52:08 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
+#include "def.h"
 
-t_token	token_make(char *s);
-
-static void	del(t_token *tok_ref)
+static void	_drop_token(void *ref)
 {
-	free(tok_ref->s);
+	t_token	*tok_ref;
+
+	tok_ref = ref;
+	token_drop(tok_ref);
 	free(tok_ref);
 }
 
-void	toklst_clear(t_list **lst_ref)
+void	toklst_drop(t_lst *lst_ref)
 {
-	ft_lstclear(lst_ref, del);
+	ft_lst_drop_with(lst_ref, _drop_token);
 }
