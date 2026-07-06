@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   token2.c                                           :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/06 13:49:19 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 14:02:51 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/06 14:31:24 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/06 14:37:55 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "def.h"
+#include "_libft.h"
 
-bool	token_is_redir(const t_token *tok_ref)
+char	*ft_strndup(const char *s, size_t n)
 {
-	return (tok_ref->t == TOKEN_REDIR_IN
-		|| tok_ref->t == TOKEN_REDIR_OUT
-		|| tok_ref->t == TOKEN_REDIR_HDOC
-		|| tok_ref->t == TOKEN_REDIR_APPEND);
-}
+	size_t	slen;
+	char	*d;
+	size_t	i;
 
-bool	token_is_meta(const t_token *tok_ref)
-{
-	return (tok_ref->t != TOKEN_WORD);
-}
-
-bool	token_is_word(const t_token *tok_ref)
-{
-	return (tok_ref->t == TOKEN_WORD);
+	slen = ft_strlen(s);
+	if (slen < n)
+		n = slen;
+	d = malloc(sizeof(char) * (n + 1));
+	if (!d)
+		return (d);
+	i = 0;
+	while (i < n)
+	{
+		d[i] = *s;
+		i += 1;
+		s += 1;
+	}
+	d[i] = '\0';
+	return (d);
 }

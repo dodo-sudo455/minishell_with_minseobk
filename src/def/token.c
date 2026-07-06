@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:31:25 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 13:49:27 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/06 14:03:52 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static inline bool	_has_quote(const char *s)
 	return (false);
 }
 
-t_token	*token_make(const char *s)
+t_token	*token_make(char *s)
 {
 	t_token	*tok_ref;
 
@@ -47,9 +47,7 @@ t_token	*token_make(const char *s)
 	if (!tok_ref)
 		return (NULL);
 	tok_ref->t = _map_type(s);
-	tok_ref->s = ft_strdup(s);
-	if (!tok_ref->s)
-		return (free(tok_ref), NULL);
+	tok_ref->s = s;
 	tok_ref->has_quote = _has_quote(s);
 	return (tok_ref);
 }
