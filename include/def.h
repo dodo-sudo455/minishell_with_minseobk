@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 13:26:26 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/06 13:29:36 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define DEF_H
 # include <stdbool.h>
 
-typedef enum e_error	t_error;
-typedef struct s_ctx	t_ctx;
-typedef struct s_env	t_env;
-typedef struct s_token	t_token;
+typedef enum e_error		t_error;
+typedef struct s_ctx		t_ctx;
+typedef struct s_env		t_env;
+typedef enum e_tokentype	t_tokentype;
+typedef struct s_token		t_token;
 
 /* ---------------------------------- */
 /* ctx                                */
