@@ -1,42 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   stubs.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/01 12:35:59 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/01 13:53:12 by minseobk         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "main.h"
-#include <unistd.h>
-#include <stdlib.h>
-
-t_lst	parse(const char *input)
-{
-	t_lst	lst;
-
-	(void)input;
-	lst.head = NULL;
-	lst.tail = NULL;
-	lst.size = 0;
-	return (lst);
-}
-
-t_lst	prep(const t_lst *exelst_ref)
-{
-	t_lst	lst;
-
-	(void)exelst_ref;
-	lst.head = NULL;
-	lst.tail = NULL;
-	lst.size = 0;
-	return (lst);
-}
-
-void	exec(t_lst exelst)
-{
-	(void)exelst;
-}
+t_error geterr(t_ctx *c_ref) { (void)c_ref; return ERROR_OK; }
+t_error seterr(t_ctx *c_ref, t_error err) { (void)c_ref; return err; }
+t_ctx ctx_make(void) { t_ctx c; ft_memset(&c, 0, sizeof(c)); return c; }
+t_error ctx_init(t_ctx *c_ref, char **envp) { (void)c_ref; (void)envp; return ERROR_OK; }
+char *ctx_expand(const t_ctx *c_ref, const char *key) { (void)c_ref; (void)key; return NULL; }
+t_error parse_expand(t_ctx *c_ref, t_lst *toklst_ref) { (void)c_ref; (void)toklst_ref; return ERROR_OK; }
+t_error parse_quote(t_ctx *c_ref, t_lst *toklst_ref) { (void)c_ref; (void)toklst_ref; return ERROR_OK; }

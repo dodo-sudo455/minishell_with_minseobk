@@ -15,10 +15,10 @@
 t_error	parse(t_ctx *c_ref, const char *input, t_lst *toklst_ref)
 {
 	if (parse_tokenize(c_ref, input, toklst_ref) != ERROR_OK)
-		return (toklst_clear(toklst_ref), geterr(c_ref));
+		return (toklst_drop(toklst_ref), geterr(c_ref));
 	if (parse_expand(c_ref, toklst_ref) != ERROR_OK)
-		return (toklst_clear(toklst_ref), geterr(c_ref));
+		return (toklst_drop(toklst_ref), geterr(c_ref));
 	if (parse_quote(c_ref, toklst_ref) != ERROR_OK)
-		return (toklst_clear(toklst_ref), geterr(c_ref));
+		return (toklst_drop(toklst_ref), geterr(c_ref));
 	return (ERROR_OK);
 }

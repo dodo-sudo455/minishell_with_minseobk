@@ -1,17 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 15:08:59 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 15:34:45 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/06 15:25:01 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/06 15:25:35 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
-# include "libft.h"
+#include "def.h"
 
-#endif // LIB_H
+void	log_indent(size_t indent)
+{
+	while (indent != 0)
+	{
+		printf("\t");
+		indent -= 1;
+	}
+}

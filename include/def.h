@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 14:03:26 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/06 15:43:19 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,21 @@ typedef struct s_ctx		t_ctx;
 typedef struct s_env		t_env;
 typedef enum e_tokentype	t_tokentype;
 typedef struct s_token		t_token;
+
+/* ---------------------------------- */
+/* error                              */
+/* ---------------------------------- */
+
+enum e_error
+{
+	ERROR_OK,
+	ERROR_INTERNAL,
+	ERROR_DEBUG,
+	ERROR_SYN,
+	ERROR_SYN_QUOTE,
+	ERROR_SYN_PIPE,
+	ERROR_SYN_REDIR,
+};
 
 /* ---------------------------------- */
 /* ctx                                */
@@ -47,21 +62,6 @@ t_error	geterr(t_ctx *c_ref);
 t_error	seterr(t_ctx *c_ref, t_error err);
 
 /* ---------------------------------- */
-/* error                              */
-/* ---------------------------------- */
-
-enum e_error
-{
-	ERROR_OK,
-	ERROR_INTERNAL,
-	ERROR_DEBUG,
-	ERROR_SYN,
-	ERROR_SYN_QUOTE,
-	ERROR_SYN_PIPE,
-	ERROR_SYN_REDIR,
-};
-
-/* ---------------------------------- */
 /* token                              */
 /* ---------------------------------- */
 
@@ -87,6 +87,14 @@ void	token_drop(t_token *tok_ref);
 bool	token_is_redir(const t_token *tok_ref);
 bool	token_is_meta(const t_token *tok_ref);
 bool	token_is_word(const t_token *tok_ref);
-void	toklst_drop(t_lst *lst_ref);
+void	token_log(const t_token *tok_ref, size_t indent);
+void	toklst_drop(t_lst *toklst_ref);
+void	toklst_log(const t_lst *toklst_ref, size_t indent);
+
+/* ---------------------------------- */
+/* util                               */
+/* ---------------------------------- */
+
+void	log_indent(size_t indent);
 
 #endif // DEF_H
