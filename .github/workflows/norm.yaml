@@ -21,7 +21,6 @@ jobs:
         python3 -m pip install -U norminette
 
     - name: Run Norminette
-      working-directory: ./ex00
       run: |
         ARG=$(ls -d * | grep -v test)
         echo "$ARG"
