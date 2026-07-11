@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:31:25 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 14:03:52 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/11 18:19:04 by doyelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static inline bool	_has_quote(const char *s)
 {
 	while (*s)
 	{
-		if (*s == '\'' && *s == '"')
+		if (*s == '\'' || *s == '"')
 			return (true);
 		s += 1;
 	}
@@ -52,6 +52,7 @@ t_token	*token_make(char *s)
 	return (tok_ref);
 }
 
+//	TODO: add `free(tok_ref)`.
 void	token_drop(t_token *tok_ref)
 {
 	if (!tok_ref)
