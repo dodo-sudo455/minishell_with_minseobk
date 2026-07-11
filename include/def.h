@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 16:16:06 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:50:34 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ t_ctx	ctx_make(void);
 t_error	ctx_init(t_ctx *c_ref, char **envp);
 void	ctx_drop(t_ctx *c_ref);
 void	ctx_drop_session(t_ctx *c_ref);
-char	*ctx_expand(const t_ctx *c_ref, const char *key);
+char	*ctx_getenv(const t_ctx *c_ref, const char *key);
+t_error	ctx_expand(t_ctx *c_ref, char **s);
 t_error	geterr(t_ctx *c_ref);
 t_error	seterr(t_ctx *c_ref, t_error err);
 

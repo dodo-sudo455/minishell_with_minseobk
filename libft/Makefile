@@ -65,7 +65,8 @@ LIB_CODES		:= \
 	ft_printf_write_s.c \
 	ft_printf_write_u.c \
 	ft_printf_write.c \
-	ft_printf.c
+	ft_printf.c \
+	ft_vec.c
 LIB_OBJS		:= $(LIB_CODES:.c=.o)
 LIB_MARK_NAME	:= mark_lib
 

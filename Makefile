@@ -83,6 +83,7 @@ test: $(BIN_DIR) $(TEST_NAMES)
 %_test: \
 	$(SRC_OBJS) \
 	$(TEST_SRC_OBJS) \
+	libft/libft.a \
 	$$(shell find $(TEST_DIR)/$$*_test -type f -name '*.c' | sed 's/\.c/\.o/') | \
 	$(BIN_DIR)	# order only prerequisite
 	$(CC) $(CFLAGS) -I $(TEST_INC_DIR) -o $(BIN_DIR)/$@ $^ -L libft -lft -lreadline
