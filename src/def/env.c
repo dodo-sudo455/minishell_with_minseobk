@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 15:53:47 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 16:20:28 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/11 18:21:30 by doyelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "def.h"
 
-t_env	*env_make(const char *s)
+t_env	*env_new(const char *s)
 {
 	t_env	*env_ref;
 	char	*pos;

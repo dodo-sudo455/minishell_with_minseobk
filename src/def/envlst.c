@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   envlst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 15:51:29 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 16:21:33 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/11 18:21:30 by doyelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_error	envlst_init(t_ctx *c_ref, t_lst *envlst_ref, char **envp)
 
 	while (*envp)
 	{
-		env_ref = env_make(*envp);
+		env_ref = env_new(*envp);
 		if (!env_ref)
 			return (envlst_drop(envlst_ref), seterr(c_ref, ERROR_INTERNAL));
 		if (ft_lst_push(envlst_ref, env_ref) != 0)

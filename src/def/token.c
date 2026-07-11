@@ -6,7 +6,7 @@
 /*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:31:25 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/11 18:19:04 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/11 18:21:48 by doyelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static inline bool	_has_quote(const char *s)
 	return (false);
 }
 
-t_token	*token_make(char *s)
+t_token	*token_new(char *s)
 {
 	t_token	*tok_ref;
 

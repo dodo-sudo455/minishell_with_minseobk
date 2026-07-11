@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   def.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/08 15:50:34 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/11 18:46:27 by doyelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ enum e_error
 	ERROR_INTERNAL,
 	ERROR_DEBUG,
 	ERROR_SYN,
-	ERROR_SYN_QUOTE,
-	ERROR_SYN_PIPE,
-	ERROR_SYN_REDIR,
 };
+
+//	TODO: implement detailed error log
+void	error_log(t_error err);
 
 /* ---------------------------------- */
 /* ctx                                */
@@ -46,7 +46,7 @@ struct s_env
 	char	*val;
 };
 
-t_env	*env_make(const char *s);
+t_env	*env_new(const char *s);
 void	env_drop(t_env *env_ref);
 void	env_log(const t_env *env_ref, size_t indent);
 t_error	envlst_init(t_ctx *c_ref, t_lst *envlst_ref, char **envp);
@@ -92,7 +92,7 @@ struct s_token
 	bool		has_quote;
 };
 
-t_token	*token_make(char *s);
+t_token	*token_new(char *s);
 void	token_drop(t_token *tok_ref);
 bool	token_is_redir(const t_token *tok_ref);
 bool	token_is_meta(const t_token *tok_ref);
