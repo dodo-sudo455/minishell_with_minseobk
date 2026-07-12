@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 13:48:48 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/08 15:21:20 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ struct s_vec
 };
 
 t_vec	ft_vec_make(size_t cap);
-void	ft_vec_drop(t_vec *vec_ref);
+void	ft_vec_clear(t_vec *vec_ref);
 int		ft_vec_push(t_vec *vec_ref, char c);
 int		ft_vec_push_n(t_vec *vec_ref, const char *buf, size_t n);
 char	*ft_vec_to_str(t_vec *vec_ref);

@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 15:49:22 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 16:10:01 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ctx_drop(t_ctx *c_ref)
 	if (c_ref->input)
 		free(c_ref->input);
 	envlst_drop(&c_ref->envlst);
-	ft_lst_drop(&c_ref->hdoclst);
+	ft_lst_clear(&c_ref->hdoclst);
 	ft_memset(c_ref, 0, sizeof(t_ctx));
 }
 

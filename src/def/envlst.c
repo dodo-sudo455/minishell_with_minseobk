@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   envlst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 15:51:29 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/11 18:21:30 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	_drop_env(void *data)
 
 void	envlst_drop(t_lst *envlst_ref)
 {
-	ft_lst_drop_with(envlst_ref, _drop_env);
+	ft_lst_clear_with(envlst_ref, _drop_env);
 }
 
 void	envlst_log(const t_lst *envlst_ref, size_t indent)

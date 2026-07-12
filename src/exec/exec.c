@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 16:38:14 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/12 13:45:55 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:53:25 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,38 @@ static t_error	_handle_redir(t_ctx *c_ref, t_cmd *cmd_ref, t_lst *nod_ref)
 	nod_ref = nod_ref->next;
 	tok_ref = nod_ref->data;
 	if (!token_is_word(tok_ref))
-		return (error_log(ERROR_SYN), seterr(c_ref, ERROR_SYN));
+		return (logerr(ERROR_SYN), seterr(c_ref, ERROR_SYN));
 	red_ref = redir_new(_to_redirtype(tok_ref), tok_ref->s);
 	if (!red_ref)
-		return (error_log(ERROR_INTERNAL), seterr(c_ref, ERROR_INTERNAL));
+		return (logerr(ERROR_INTERNAL), seterr(c_ref, ERROR_INTERNAL));
 	if (ft_lst_push(&cmd_ref->redlst, red_ref) != 0)
-		return (error_log(ERROR_INTERNAL), seterr(c_ref, ERROR_INTERNAL));
+		return (logerr(ERROR_INTERNAL), seterr(c_ref, ERROR_INTERNAL));
 	return (ERROR_OK);
 }
 
 static t_error	_handle_word(t_ctx *c_ref, t_cmd *cmd_ref, t_lst *nod_ref)
 {
 	t_token	*tok_ref;
-	char	*fname;
+	char	*s;
 
 	tok_ref = nod_ref->data;
-	fname = ft_strdup(tok_ref->s);
-	if (!fname)
-		return (error_log(ERROR_INTERNAL), seterr(c_ref, ERROR_INTERNAL));
-	if (ft_lst_push(&cmd_ref->arglst, fname) != 0)
-		return (free(fname), error_log(ERROR_INTERNAL), seterr(c_ref, ERROR_INTERNAL));
+	s = ft_strdup(tok_ref->s);
+	if (!s)
+		return (logerr(ERROR_INTERNAL), seterr(c_ref, ERROR_INTERNAL));
+	if (ft_lst_push(&cmd_ref->arglst, s) != 0)
+		return (free(s), logerr(ERROR_INTERNAL), seterr(c_ref, ERROR_INTERNAL));
 	return (ERROR_OK);
+}
+
+static inline t_error	_quit(
+	t_ctx *c_ref, t_lst *cmdlst_ref, t_cmd *cmd_ref, t_error err)
+{
+	if (cmdlst_ref)
+		cmdlst_clear(cmdlst_ref);
+	if (cmd_ref)
+		cmd_drop(cmd_ref);
+	logerr(err);
+	return (seterr(c_ref, err));
 }
 
 t_error	exec_parse(t_ctx *c_ref, const t_lst *toklst_ref, t_lst *cmdlst_ref)
@@ -72,25 +83,27 @@ t_error	exec_parse(t_ctx *c_ref, const t_lst *toklst_ref, t_lst *cmdlst_ref)
 		if (token_is_redir(tok_ref))
 		{
 			if (_handle_redir(c_ref, cmd_ref, nod_ref) != ERROR_OK)
-				return (cmd_drop(cmd_ref), cmdlst_drop(cmdlst_ref), ERROR_INTERNAL);
+				return (_quit(c_ref, cmdlst_ref, cmd_ref, geterr(c_ref)));
 			nod_ref = nod_ref->next;
 		}
 		else if (token_is_word(tok_ref))
 		{
 			if (_handle_word(c_ref, cmd_ref, nod_ref) != ERROR_OK)
-				return (cmd_drop(cmd_ref), cmdlst_drop(cmdlst_ref), ERROR_INTERNAL);
+				return (_quit(c_ref, cmdlst_ref, cmd_ref, geterr(c_ref)));
 		}
 		else if (tok_ref->t == TOKEN_PIPE)
 		{
 			if (ft_lst_push(cmdlst_ref, cmd_ref) != 0)
-				return (cmd_drop(cmd_ref), cmdlst_drop(cmdlst_ref),
-					error_log(ERROR_INTERNAL), seterr(c_ref, ERROR_INTERNAL));
+				return (_quit(c_ref, cmdlst_ref, cmd_ref, ERROR_INTERNAL));
+			cmd_ref = cmd_new();
+			if (!cmd_ref)
+				return (_quit(c_ref, cmdlst_ref, cmd_ref, geterr(c_ref)));
 		}
 		else
-			return (cmd_drop(cmd_ref), cmdlst_drop(cmdlst_ref),
-					error_log(ERROR_DEBUG), seterr(c_ref, ERROR_DEBUG));		
+			return (_quit(c_ref, cmdlst_ref, cmd_ref, ERROR_DEBUG));
 		nod_ref = nod_ref->next;
 	}
-	ft_lst_push(cmdlst_ref, cmd_ref);
+	if (ft_lst_push(cmdlst_ref, cmd_ref) != 0)
+		return (_quit(c_ref, cmdlst_ref, cmd_ref, ERROR_INTERNAL));
 	return (ERROR_OK);
 }

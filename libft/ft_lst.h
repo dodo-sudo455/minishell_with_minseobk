@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 13:44:57 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/03 15:32:22 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ struct s_lst
 
 /* ft_lst.c */
 t_lst	ft_lst_make(void);
-void	ft_lst_drop(t_lst *lst_ref);
-void	ft_lst_drop_with(t_lst *lst_ref, void (*del)(void *));
+void	ft_lst_clear(t_lst *lst_ref);
+void	ft_lst_clear_with(t_lst *lst_ref, void (*del)(void *));
 size_t	ft_lst_size(const t_lst *lst_ref);
 t_lst	*ft_lst_node_new(void *data);
 

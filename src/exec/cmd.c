@@ -1,48 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   redir.c                                            :+:      :+:    :+:   */
+/*   cmd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/11 18:51:52 by doyelee           #+#    #+#             */
+/*   Created: 2026/07/12 17:04:08 by minseobk          #+#    #+#             */
 /*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exec.h"
 
-t_redir	*redir_new(t_redirtype type, const char *s)
+t_cmd	*cmd_new(void)
 {
-	t_redir	*redir_ref;
+	t_cmd	*cmd_ref;
 
-	redir_ref = malloc(sizeof(t_redir));
-	if (!redir_ref)
+	cmd_ref = malloc(sizeof(t_cmd));
+	if (!cmd_ref)
 		return (NULL);
-	redir_ref->t = type;
-	redir_ref->s = ft_strdup(s);
-	if (!redir_ref->s)
-	{
-		free(redir_ref);
-		return (NULL);
-	}
-	return (redir_ref);
+	cmd_ref->arglst = ft_lst_make();
+	cmd_ref->redlst = ft_lst_make();
+	return (cmd_ref);
 }
 
-void	redir_drop(t_redir *redir_ref)
+void	cmd_clear(t_cmd *cmd_ref)
 {
-	if (!redir_ref)
+	if (!cmd_ref)
 		return ;
-	free(redir_ref->s);
-	free(redir_ref);
+	ft_lst_clear(&cmd_ref->arglst);
+	redlst_clear(&cmd_ref->redlst);
+	ft_memset(cmd_ref, 0, sizeof(t_cmd));
 }
 
-static void	_redir_drop(void *ref)
+void	cmd_drop(t_cmd *cmd_ref)
 {
-	redir_drop((t_redir *)ref);
+	if (!cmd_ref)
+		return ;
+	cmd_clear(cmd_ref);
+	free(cmd_ref);
 }
 
-void	redlst_clear(t_lst *redlst_ref)
+static void	_cmd_drop(void *ref)
 {
-	ft_lst_clear_with(redlst_ref, _redir_drop);
+	cmd_drop((t_cmd *)ref);
+}
+
+void	cmdlst_clear(t_lst *cmdlst_ref)
+{
+	ft_lst_clear_with(cmdlst_ref, _cmd_drop);
 }
