@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_tokenize.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:54:15 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/11 18:21:48 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/12 13:38:57 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

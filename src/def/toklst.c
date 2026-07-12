@@ -18,7 +18,6 @@ static void	_drop_token(void *ref)
 
 	tok_ref = ref;
 	token_drop(tok_ref);
-	free(tok_ref);
 }
 
 void	toklst_drop(t_lst *lst_ref)

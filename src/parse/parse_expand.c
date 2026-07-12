@@ -18,7 +18,6 @@ static void	_token_del(void *ref)
 
 	tok_ref = ref;
 	token_drop(tok_ref);
-	free(tok_ref);
 }
 
 static t_error	_expand_node(t_ctx *c_ref, t_lst *node)

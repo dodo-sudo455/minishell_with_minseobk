@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 16:38:14 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/11 19:26:15 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/12 13:45:55 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exec.h"
+
+static t_redirtype	_to_redirtype(const t_token *t)
+{
+	if (t->t == TOKEN_REDIR_IN)
+		return (REDIR_IN);
+	if (t->t == TOKEN_REDIR_OUT)
+		return (REDIR_OUT);
+	if (t->t == TOKEN_REDIR_HDOC)
+		return (REDIR_HDOC);
+	if (t->t == TOKEN_REDIR_APPEND)
+		return (REDIR_APPEND);
+	return (-1);
+}
 
 static t_error	_handle_redir(t_ctx *c_ref, t_cmd *cmd_ref, t_lst *nod_ref)
 {
@@ -22,7 +35,7 @@ static t_error	_handle_redir(t_ctx *c_ref, t_cmd *cmd_ref, t_lst *nod_ref)
 	tok_ref = nod_ref->data;
 	if (!token_is_word(tok_ref))
 		return (error_log(ERROR_SYN), seterr(c_ref, ERROR_SYN));
-	red_ref = redir_new(token_to_redirtype(tok_ref->t), tok_ref->s);
+	red_ref = redir_new(_to_redirtype(tok_ref), tok_ref->s);
 	if (!red_ref)
 		return (error_log(ERROR_INTERNAL), seterr(c_ref, ERROR_INTERNAL));
 	if (ft_lst_push(&cmd_ref->redlst, red_ref) != 0)
@@ -49,11 +62,10 @@ t_error	exec_parse(t_ctx *c_ref, const t_lst *toklst_ref, t_lst *cmdlst_ref)
 	t_cmd	*cmd_ref;
 	t_lst	*nod_ref;
 	t_token	*tok_ref;
-	char	*fname;
 
 	*cmdlst_ref = ft_lst_make();
 	cmd_ref = cmd_new();
-	nod_ref = ft_lst_first(toklst_ref);
+	nod_ref = toklst_ref->next;
 	while (nod_ref)
 	{
 		tok_ref = nod_ref->data;

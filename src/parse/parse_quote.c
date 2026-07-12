@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 12:17:09 by doyelee           #+#    #+#             */
-/*   Updated: 2026/07/08 17:04:12 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 13:40:21 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static t_error	_strip_quote_str(t_ctx *c_ref, const char *src, char **dst)
 		i += 1;
 	}
 	if (state != 0)
-		return (ft_vec_drop(&vec), seterr(c_ref, ERROR_SYN_QUOTE));
+		return (ft_vec_drop(&vec), seterr(c_ref, ERROR_SYN));
 	*dst = ft_vec_to_str(&vec);
 	ft_vec_drop(&vec);
 	if (!*dst)

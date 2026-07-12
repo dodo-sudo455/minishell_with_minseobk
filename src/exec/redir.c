@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   redir.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 18:51:52 by doyelee           #+#    #+#             */
-/*   Updated: 2026/07/11 18:58:29 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/12 13:57:37 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exec.h"
 
-t_redir	*redir_new(t_redirtype type, const char *fname)
+t_redir	*redir_new(t_redirtype type, const char *s)
 {
 	t_redir	*redir_ref;
 
 	redir_ref = malloc(sizeof(t_redir));
 	if (!redir_ref)
 		return (NULL);
-	redir_ref->type = type;
-	redir_ref->fname = ft_strdup(fname);
-	if (!redir_ref->fname)
+	redir_ref->t = type;
+	redir_ref->s = ft_strdup(s);
+	if (!redir_ref->s)
 	{
 		free(redir_ref);
 		return (NULL);

@@ -47,6 +47,7 @@ struct s_env
 };
 
 t_env	*env_new(const char *s);
+void	env_clear(t_env *env_ref);
 void	env_drop(t_env *env_ref);
 void	env_log(const t_env *env_ref, size_t indent);
 t_error	envlst_init(t_ctx *c_ref, t_lst *envlst_ref, char **envp);
@@ -93,6 +94,7 @@ struct s_token
 };
 
 t_token	*token_new(char *s);
+void	token_clear(t_token *tok_ref);
 void	token_drop(t_token *tok_ref);
 bool	token_is_redir(const t_token *tok_ref);
 bool	token_is_meta(const t_token *tok_ref);

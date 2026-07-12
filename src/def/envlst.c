@@ -22,9 +22,7 @@ t_error	envlst_init(t_ctx *c_ref, t_lst *envlst_ref, char **envp)
 		if (!env_ref)
 			return (envlst_drop(envlst_ref), seterr(c_ref, ERROR_INTERNAL));
 		if (ft_lst_push(envlst_ref, env_ref) != 0)
-			return (env_drop(env_ref),
-				free(env_ref),
-				envlst_drop(envlst_ref),
+			return (env_drop(env_ref), envlst_drop(envlst_ref),
 				seterr(c_ref, ERROR_INTERNAL));
 		envp += 1;
 	}
@@ -34,7 +32,6 @@ t_error	envlst_init(t_ctx *c_ref, t_lst *envlst_ref, char **envp)
 static void	_drop_env(void *data)
 {
 	env_drop(data);
-	free(data);
 }
 
 void	envlst_drop(t_lst *envlst_ref)
