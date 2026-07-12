@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 14:18:20 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 19:16:45 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ struct s_redir
 	char		*s;
 };
 
-t_redir	*redir_new(t_redirtype type, const char *fname);
-void	redir_drop(t_redir *redir_ref);
-void	redlst_clear(t_lst *redlst_ref);
+t_redir		*redir_new(t_redirtype type, const char *fname);
+void		redir_drop(t_redir *redir_ref);
+void		redlst_clear(t_lst *redlst_ref);
+t_redirtype	token_to_redirtype(const t_token *t);
 
 struct s_cmd
 {
@@ -53,16 +54,17 @@ struct s_cmd
 	t_lst	redlst;
 };
 
-t_cmd	*cmd_new(void);
-void	cmd_clear(t_cmd *cmd_ref);
-void	cmd_drop(t_cmd *cmd_ref);
-void	cmdlst_clear(t_lst *cmdlst_ref);
+t_cmd		*cmd_new(void);
+void		cmd_clear(t_cmd *cmd_ref);
+void		cmd_drop(t_cmd *cmd_ref);
+void		cmdlst_clear(t_lst *cmdlst_ref);
 
-t_error	exec(t_ctx *c_ref, const t_lst *toklst_ref, t_lst *cmdlst_ref);
-t_error	exec_parse(t_ctx *c_ref, const t_lst *toklst_ref, t_lst *cmdlst_ref);
-t_error	exec_redir(t_ctx *c_ref, t_lst *cmdlst_ref);
-t_error	exec_pipe(t_ctx *c_ref, t_lst *cmdlst_ref);
-t_error	exec_run(t_ctx*c_ref, int fd[2], t_lst *arglst_ref);
+t_error		exec(t_ctx *c_ref, const t_lst *toklst_ref, t_lst *cmdlst_ref);
+t_error		exec_parse(t_ctx *c_ref,
+				const t_lst *toklst_ref, t_lst *cmdlst_ref);
+t_error		exec_redir(t_ctx *c_ref, t_lst *cmdlst_ref);
+t_error		exec_pipe(t_ctx *c_ref, t_lst *cmdlst_ref);
+t_error		exec_run(t_ctx*c_ref, int fd[2], t_lst *arglst_ref);
 
 /*
 exec(toklst):

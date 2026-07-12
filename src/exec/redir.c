@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 18:51:52 by doyelee           #+#    #+#             */
-/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 19:16:00 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,17 @@ static void	_redir_drop(void *ref)
 void	redlst_clear(t_lst *redlst_ref)
 {
 	ft_lst_clear_with(redlst_ref, _redir_drop);
+}
+
+t_redirtype	token_to_redirtype(const t_token *t)
+{
+	if (t->t == TOKEN_REDIR_IN)
+		return (REDIR_IN);
+	if (t->t == TOKEN_REDIR_OUT)
+		return (REDIR_OUT);
+	if (t->t == TOKEN_REDIR_HDOC)
+		return (REDIR_HDOC);
+	if (t->t == TOKEN_REDIR_APPEND)
+		return (REDIR_APPEND);
+	return (-1);
 }
