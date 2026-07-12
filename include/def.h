@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/12 17:31:07 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 20:00:09 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ bool	token_is_redir(const t_token *tok_ref);
 bool	token_is_meta(const t_token *tok_ref);
 bool	token_is_word(const t_token *tok_ref);
 void	token_log(const t_token *tok_ref, size_t indent);
-void	toklst_drop(t_lst *toklst_ref);
+void	toklst_clear(t_lst *toklst_ref);
 void	toklst_log(const t_lst *toklst_ref, size_t indent);
 
 /* ---------------------------------- */

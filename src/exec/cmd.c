@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 17:04:08 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 20:26:34 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,26 @@ void	cmd_drop(t_cmd *cmd_ref)
 	free(cmd_ref);
 }
 
-static void	_cmd_drop(void *ref)
+void	cmd_log(const t_cmd *cmd_ref, size_t indent)
 {
-	cmd_drop((t_cmd *)ref);
-}
+	const t_lst	*nod_ref;
 
-void	cmdlst_clear(t_lst *cmdlst_ref)
-{
-	ft_lst_clear_with(cmdlst_ref, _cmd_drop);
+	log_indent(indent);
+	printf("{\n");
+	log_indent(indent + 1);
+	printf("arglst: [");
+	nod_ref = cmd_ref->arglst.next;
+	while (nod_ref && nod_ref != &cmd_ref->arglst)
+	{
+		printf("%s", (char *)nod_ref->data);
+		if (nod_ref->next && nod_ref->next != &cmd_ref->arglst)
+			printf(", ");
+		nod_ref = nod_ref->next;
+	}
+	printf("]\n");
+	log_indent(indent + 1);
+	printf("redlst: ");
+	redlst_log(&cmd_ref->redlst, 0);
+	log_indent(indent);
+	printf("}\n");
 }

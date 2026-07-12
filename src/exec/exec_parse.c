@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 16:38:14 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/12 19:22:42 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 20:31:35 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ t_error	exec_parse(t_ctx *c_ref, const t_lst *toklst_ref, t_lst *cmdlst_ref)
 	*cmdlst_ref = ft_lst_make();
 	cmd_ref = cmd_new();
 	nod_ref = toklst_ref->next;
-	while (nod_ref)
+	while (nod_ref && nod_ref != toklst_ref)
 	{
 		if (_parse_node(c_ref, cmdlst_ref, &cmd_ref, &nod_ref) != ERROR_OK)
 			return (cmd_drop(cmd_ref), cmdlst_clear(cmdlst_ref),
