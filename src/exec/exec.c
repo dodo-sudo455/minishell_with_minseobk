@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 16:38:14 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/12 17:53:25 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 18:12:10 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static inline t_error	_quit(
 	return (seterr(c_ref, err));
 }
 
+// TODO
 t_error	exec_parse(t_ctx *c_ref, const t_lst *toklst_ref, t_lst *cmdlst_ref)
 {
 	t_cmd	*cmd_ref;
