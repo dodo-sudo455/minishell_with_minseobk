@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 14:18:20 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/12 20:26:34 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/13 14:36:28 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ enum e_redirtype
 
 /**
  *	FIELDS
- *		- `t`: redirection type
+ *		- `t`: redirection typed
  *		- `s`: file name or heredoc delimiter
  */
 struct s_redir
