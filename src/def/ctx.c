@@ -6,7 +6,7 @@
 /*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 15:49:22 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/14 14:05:22 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/14 14:12:42 by doyelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,4 @@ void	ctx_clear_session(t_ctx *c_ref)
 		free(c_ref->input);
 		c_ref->input = NULL;
 	}
-	
 }
