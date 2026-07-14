@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 13:33:43 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/01 14:11:59 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/14 16:30:29 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 static void	sigint_handler(int sig)
 {
 	(void)sig;
-	printf("\n");
+	write(STDOUT_FILENO, "\n", 1);
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	rl_redisplay();

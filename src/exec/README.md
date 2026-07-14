@@ -11,10 +11,10 @@
 ```c
 enum e_redirtype
 {
-	REDIR_IN,
-	REDIR_OUT,
-	REDIR_HDOC,
-	REDIR_APPEND
+	REDIR_IN,		// <
+	REDIR_OUT,		// >
+	REDIR_HDOC,		// <<
+	REDIR_APPEND	// >>
 };
 
 struct s_redir

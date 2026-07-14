@@ -6,12 +6,18 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:08:59 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/06 15:34:45 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/14 18:07:30 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_H
 # define LIB_H
 # include "libft.h"
+
+/* ---------------------------------- */
+/* safe                               */
+/* ---------------------------------- */
+
+void	safe_fork(t_ctx *c_ref);
 
 #endif // LIB_H

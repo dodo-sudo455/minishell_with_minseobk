@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 14:18:20 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/13 14:36:28 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/14 17:53:42 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,9 @@ t_error		exec_parse(t_ctx *c_ref,
 				const t_lst *toklst_ref, t_lst *cmdlst_ref);
 t_error		exec_redir(t_ctx *c_ref, t_lst *cmdlst_ref);
 t_error		exec_pipe(t_ctx *c_ref, t_lst *cmdlst_ref);
-t_error		exec_run(t_ctx*c_ref, t_lst *cmdlst_ref);
+t_error		exec_run(t_ctx*c_ref, const t_lst *cmdlst_ref);
+t_error		exec_run_sig_parent(t_ctx *c_ref);
+t_error		exec_run_sig_child(t_ctx *c_ref);
 
 /*
 exec(toklst):
