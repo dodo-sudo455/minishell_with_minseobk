@@ -1,5 +1,13 @@
 # /src/exec
 
+- signal_off_parent()
+- pipe()
+- fork()
+- signal_on_child()
+- handle_redir()
+- dup2()
+- exec()
+
 ```c
 enum e_redirtype
 {

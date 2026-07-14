@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   def.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:32:56 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/12 20:00:09 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/14 14:09:35 by doyelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ struct s_ctx
 	char		*input;
 	char		**envp;
 	t_lst		envlst;
-	t_lst		hdoclst;
+	t_lst		hdlst;
 };
 
 t_ctx	ctx_make(void);
 t_error	ctx_init(t_ctx *c_ref, char **envp);
 void	ctx_drop(t_ctx *c_ref);
-void	ctx_drop_session(t_ctx *c_ref);
+void	ctx_clear_session(t_ctx *c_ref);
 char	*ctx_getenv(const t_ctx *c_ref, const char *key);
 t_error	ctx_expand(t_ctx *c_ref, char **s);
 t_error	geterr(t_ctx *c_ref);

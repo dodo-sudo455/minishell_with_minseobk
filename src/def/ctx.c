@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ctx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
+/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 15:49:22 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/14 14:05:22 by doyelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_error	ctx_init(t_ctx *c_ref, char **envp)
 	c_ref->envp = envp;
 	if (envlst_init(c_ref, &c_ref->envlst, envp) != ERROR_OK)
 		return (geterr(c_ref));
-	c_ref->hdoclst = ft_lst_make();
+	c_ref->hdlst = ft_lst_make();
 	return (ERROR_OK);
 }
 
@@ -35,16 +35,17 @@ void	ctx_drop(t_ctx *c_ref)
 	if (c_ref->input)
 		free(c_ref->input);
 	envlst_drop(&c_ref->envlst);
-	ft_lst_clear(&c_ref->hdoclst);
+	ft_lst_clear(&c_ref->hdlst);
 	ft_memset(c_ref, 0, sizeof(t_ctx));
 }
 
 // TODO: unlink hdoclst
-void	ctx_drop_session(t_ctx *c_ref)
+void	ctx_clear_session(t_ctx *c_ref)
 {
 	if (c_ref->input)
 	{
 		free(c_ref->input);
 		c_ref->input = NULL;
 	}
+	
 }

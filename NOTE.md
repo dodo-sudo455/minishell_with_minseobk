@@ -13,7 +13,16 @@ Ctrl+C 처리를 해야해.
 - 부모 프로세스는 안전하게 메인 프로세스에서 계속하면 돼.
 
 
+## 처리 시그널
+`Ctrl+C` (SIGINT)
+- 새 프롬프트
 
+`Ctrl+D` (EOF)
+- 경고문 출력
+- 현재 heredoc 마무리
+
+`Ctrl+\\` (SIGQUIT)
+- 무시
 
 main_loop:
     prompt()
