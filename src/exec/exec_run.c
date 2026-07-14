@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 20:22:10 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/14 18:14:37 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/14 18:15:50 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ static t_error	_wait_pidarr(
 
 static t_error	_run_child(t_ctx *c_ref, const t_cmd *cmd_ref, int pipefd[2])
 {
-	exec_run_sig_child();
-	
+	exec_run_sig_child(c_ref);
+	if 
 }
 
 /**
