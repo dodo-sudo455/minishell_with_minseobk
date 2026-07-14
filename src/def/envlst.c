@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   envlst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 15:51:29 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/11 18:21:30 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ t_error	envlst_init(t_ctx *c_ref, t_lst *envlst_ref, char **envp)
 		if (!env_ref)
 			return (envlst_drop(envlst_ref), seterr(c_ref, ERROR_INTERNAL));
 		if (ft_lst_push(envlst_ref, env_ref) != 0)
-			return (env_drop(env_ref),
-				free(env_ref),
-				envlst_drop(envlst_ref),
+			return (env_drop(env_ref), envlst_drop(envlst_ref),
 				seterr(c_ref, ERROR_INTERNAL));
 		envp += 1;
 	}
@@ -34,12 +32,11 @@ t_error	envlst_init(t_ctx *c_ref, t_lst *envlst_ref, char **envp)
 static void	_drop_env(void *data)
 {
 	env_drop(data);
-	free(data);
 }
 
 void	envlst_drop(t_lst *envlst_ref)
 {
-	ft_lst_drop_with(envlst_ref, _drop_env);
+	ft_lst_clear_with(envlst_ref, _drop_env);
 }
 
 void	envlst_log(const t_lst *envlst_ref, size_t indent)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   token.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:31:25 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/11 18:21:48 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/12 17:04:59 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ t_token	*token_new(char *s)
 	return (tok_ref);
 }
 
-//	TODO: add `free(tok_ref)`.
-void	token_drop(t_token *tok_ref)
+void	token_clear(t_token *tok_ref)
 {
 	if (!tok_ref)
 		return ;
@@ -62,4 +61,14 @@ void	token_drop(t_token *tok_ref)
 		free(tok_ref->s);
 		tok_ref->s = NULL;
 	}
+	tok_ref->t = 0;
+	tok_ref->has_quote = false;
+}
+
+void	token_drop(t_token *tok_ref)
+{
+	if (!tok_ref)
+		return ;
+	token_clear(tok_ref);
+	free(tok_ref);
 }

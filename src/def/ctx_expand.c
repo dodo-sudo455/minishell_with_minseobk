@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:27:04 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/08 16:57:47 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,15 +98,15 @@ t_error	ctx_expand(t_ctx *c_ref, char **s)
 		if ((*s)[i] == '$' && state != 1)
 		{
 			if (_expand_var(c_ref, &vec, *s, &i) != ERROR_OK)
-				return (ft_vec_drop(&vec), c_ref->err);
+				return (ft_vec_clear(&vec), c_ref->err);
 			continue ;
 		}
 		if (ft_vec_push(&vec, (*s)[i++]) != 0)
-			return (ft_vec_drop(&vec), seterr(c_ref, ERROR_INTERNAL));
+			return (ft_vec_clear(&vec), seterr(c_ref, ERROR_INTERNAL));
 	}
 	free(*s);
 	*s = ft_vec_to_str(&vec);
-	ft_vec_drop(&vec);
+	ft_vec_clear(&vec);
 	if (!*s)
 		return (seterr(c_ref, ERROR_INTERNAL));
 	return (ERROR_OK);

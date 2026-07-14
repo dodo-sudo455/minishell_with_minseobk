@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 15:53:47 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/11 18:21:30 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/12 17:04:59 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,38 @@ t_env	*env_new(const char *s)
 	{
 		env_ref->key = ft_strndup(s, pos - s);
 		if (!env_ref->key)
-			return (env_drop(env_ref), free(env_ref), NULL);
+			return (env_drop(env_ref), NULL);
 		env_ref->val = ft_strdup(pos + 1);
 		if (!env_ref->val)
-			return (env_drop(env_ref), free(env_ref), NULL);
+			return (env_drop(env_ref), NULL);
 	}
 	else
 	{
 		env_ref->key = ft_strdup(s);
 		if (!env_ref->key)
-			return (env_drop(env_ref), free(env_ref), NULL);
+			return (env_drop(env_ref), NULL);
 		env_ref->val = NULL;
 	}
 	return (env_ref);
 }
 
-void	env_drop(t_env *env_ref)
+void	env_clear(t_env *env_ref)
 {
+	if (!env_ref)
+		return ;
 	if (env_ref->key)
 		free(env_ref->key);
 	if (env_ref->val)
 		free(env_ref->val);
 	ft_memset(env_ref, 0, sizeof(t_env));
+}
+
+void	env_drop(t_env *env_ref)
+{
+	if (!env_ref)
+		return ;
+	env_clear(env_ref);
+	free(env_ref);
 }
 
 void	env_log(const t_env *env_ref, size_t indent)

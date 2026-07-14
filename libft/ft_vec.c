@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 14:05:19 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/08 15:21:20 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_vec	ft_vec_make(size_t cap)
 	return (vec);
 }
 
-void	ft_vec_drop(t_vec *vec_ref)
+void	ft_vec_clear(t_vec *vec_ref)
 {
 	if (vec_ref->arr)
 		free(vec_ref->arr);

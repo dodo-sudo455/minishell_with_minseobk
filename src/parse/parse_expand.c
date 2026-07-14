@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 12:16:53 by doyelee           #+#    #+#             */
-/*   Updated: 2026/07/08 16:46:22 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:04:59 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static void	_token_del(void *ref)
 
 	tok_ref = ref;
 	token_drop(tok_ref);
-	free(tok_ref);
 }
 
 static t_error	_expand_node(t_ctx *c_ref, t_lst *node)

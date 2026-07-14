@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   tlib_join_args.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/06 15:25:01 by minseobk          #+#    #+#             */
+/*   Created: 2026/07/12 19:31:56 by minseobk          #+#    #+#             */
 /*   Updated: 2026/07/12 20:31:35 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "def.h"
+#include "test.h"
 
-void	log_indent(size_t indent)
+static char	*_append(char *s1, const char *s2)
 {
-	while (indent != 0)
-	{
-		printf("\t");
-		indent -= 1;
-	}
+	char	*res;
+
+	res = ft_strjoin(s1, s2);
+	return (free(s1), res);
 }
 
-void	log_strlst(const t_lst *lst_ref, size_t indent)
+char	*tlib_join_args(int argc, char **argv)
 {
-	const t_lst	*nod_ref;
-	bool		is_first;
+	char	*input;
+	int		i;
 
-	log_indent(indent);
-	printf("[");
-	nod_ref = lst_ref->next;
-	is_first = true;
-	while (nod_ref != lst_ref)
+	input = ft_strdup("");
+	if (!input)
+		return (NULL);
+	i = 1;
+	while (i < argc)
 	{
-		if (!is_first)
-			printf(", ");
-		printf("%s", (char *)nod_ref->data);
-		nod_ref = nod_ref->next;
-		is_first = false;
+		input = _append(input, argv[i]);
+		if (!input)
+			return (NULL);
+		if (i < argc - 1)
+		{
+			input = _append(input, " ");
+			if (!input)
+				return (NULL);
+		}
+		i += 1;
 	}
-	printf("]\n");
+	return (input);
 }

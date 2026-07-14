@@ -1,42 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   cmd_run.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/06 15:25:01 by minseobk          #+#    #+#             */
+/*   Created: 2026/07/12 20:27:07 by minseobk          #+#    #+#             */
 /*   Updated: 2026/07/12 20:31:35 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "def.h"
-
-void	log_indent(size_t indent)
-{
-	while (indent != 0)
-	{
-		printf("\t");
-		indent -= 1;
-	}
-}
-
-void	log_strlst(const t_lst *lst_ref, size_t indent)
-{
-	const t_lst	*nod_ref;
-	bool		is_first;
-
-	log_indent(indent);
-	printf("[");
-	nod_ref = lst_ref->next;
-	is_first = true;
-	while (nod_ref != lst_ref)
-	{
-		if (!is_first)
-			printf(", ");
-		printf("%s", (char *)nod_ref->data);
-		nod_ref = nod_ref->next;
-		is_first = false;
-	}
-	printf("]\n");
-}
+#include "exec.h"

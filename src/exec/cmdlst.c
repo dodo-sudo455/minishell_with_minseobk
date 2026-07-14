@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   util.c                                             :+:      :+:    :+:   */
+/*   cmdlst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/06 15:25:01 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/12 20:31:35 by minseobk         ###   ########.fr       */
+/*   Created: 2026/07/12 20:01:42 by minseobk          #+#    #+#             */
+/*   Updated: 2026/07/12 20:26:34 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "def.h"
+#include "exec.h"
 
-void	log_indent(size_t indent)
-{
-	while (indent != 0)
-	{
-		printf("\t");
-		indent -= 1;
-	}
-}
-
-void	log_strlst(const t_lst *lst_ref, size_t indent)
+void	cmdlst_log(const t_lst *cmdlst_ref, size_t indent)
 {
 	const t_lst	*nod_ref;
-	bool		is_first;
 
 	log_indent(indent);
-	printf("[");
-	nod_ref = lst_ref->next;
-	is_first = true;
-	while (nod_ref != lst_ref)
+	printf("[\n");
+	nod_ref = cmdlst_ref->next;
+	while (nod_ref && nod_ref != cmdlst_ref)
 	{
-		if (!is_first)
-			printf(", ");
-		printf("%s", (char *)nod_ref->data);
+		cmd_log((t_cmd *)nod_ref->data, indent + 1);
 		nod_ref = nod_ref->next;
-		is_first = false;
 	}
+	log_indent(indent);
 	printf("]\n");
+}
+
+static void	_cmd_drop(void *ref)
+{
+	cmd_drop((t_cmd *)ref);
+}
+
+void	cmdlst_clear(t_lst *cmdlst_ref)
+{
+	ft_lst_clear_with(cmdlst_ref, _cmd_drop);
 }

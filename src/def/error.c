@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 18:46:36 by doyelee           #+#    #+#             */
-/*   Updated: 2026/07/11 18:49:20 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/12 17:31:07 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "def.h"
 
-void	error_log(t_error err)
+void	logerr(t_error err)
 {
 	char	to_char;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_tokenize.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 13:54:15 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/11 18:21:48 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/12 20:00:09 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,11 @@ t_error	parse_tokenize(t_ctx *c_ref, const char *input, t_lst *toklst_ref)
 		toklen = _count_token_len(input, i);
 		s = ft_strndup(input + i, toklen);
 		if (!s)
-			return (toklst_drop(toklst_ref), seterr(c_ref, ERROR_INTERNAL));
+			return (toklst_clear(toklst_ref), seterr(c_ref, ERROR_INTERNAL));
 		tok_ref = token_new(s);
 		if (!tok_ref || ft_lst_push(toklst_ref, tok_ref) != 0)
 			return (token_drop(tok_ref),
-				toklst_drop(toklst_ref), seterr(c_ref, ERROR_INTERNAL));
+				toklst_clear(toklst_ref), seterr(c_ref, ERROR_INTERNAL));
 		i += toklen;
 	}
 	return (ERROR_OK);

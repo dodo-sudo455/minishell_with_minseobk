@@ -6,7 +6,7 @@
 /*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 14:07:25 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/03 15:36:23 by minseobk         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:26:54 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_lst	ft_lst_make(void)
 	return (lst);
 }
 
-void	ft_lst_drop(t_lst *lst_ref)
+void	ft_lst_clear(t_lst *lst_ref)
 {
 	t_lst	*p;
 	t_lst	*tmp;
@@ -41,7 +41,7 @@ void	ft_lst_drop(t_lst *lst_ref)
 	*lst_ref = ft_lst_make();
 }
 
-void	ft_lst_drop_with(t_lst *lst_ref, void (*del)(void *))
+void	ft_lst_clear_with(t_lst *lst_ref, void (*del)(void *))
 {
 	t_lst	*p;
 	t_lst	*tmp;

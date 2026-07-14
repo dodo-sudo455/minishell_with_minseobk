@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doyelee <doyelee@student.42gyeongsan.kr    +#+  +:+       +#+        */
+/*   By: minseobk <minseobk@student.42gyeongsan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 14:18:20 by minseobk          #+#    #+#             */
-/*   Updated: 2026/07/11 19:23:20 by doyelee          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:36:28 by minseobk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ enum e_redirtype
 
 /**
  *	FIELDS
- *		- `t`: redirection type
+ *		- `t`: redirection typed
  *		- `s`: file name or heredoc delimiter
  */
 struct s_redir
@@ -43,7 +43,12 @@ struct s_redir
 	char		*s;
 };
 
-t_redir	*redir_new(t_redirtype type, const char *fname);
+t_redir		*redir_new(t_redirtype type, const char *fname);
+void		redir_drop(t_redir *red_ref);
+void		redir_log(const t_redir *red_ref);
+t_redirtype	token_to_redirtype(const t_token *t);
+void		redlst_clear(t_lst *redlst_ref);
+void		redlst_log(const t_lst *redlst_ref, size_t indent);
 
 struct s_cmd
 {
@@ -51,15 +56,20 @@ struct s_cmd
 	t_lst	redlst;
 };
 
-t_cmd	*cmd_new(void);
-void	cmd_drop(t_cmd *cmd_ref);
-void	cmdlst_drop(t_lst *cmdlst_ref);
+t_cmd		*cmd_new(void);
+void		cmd_clear(t_cmd *cmd_ref);
+void		cmd_drop(t_cmd *cmd_ref);
+void		cmd_log(const t_cmd *cmd_ref, size_t indent);
+t_error		cmd_run(t_ctx *c_ref, int fd[2], const t_cmd *cmd_ref);
+void		cmdlst_clear(t_lst *cmdlst_ref);
+void		cmdlst_log(const t_lst *cmdlst_ref, size_t indent);
 
-t_error	exec(t_ctx *c_ref, const t_lst *toklst_ref, t_lst *cmdlst_ref);
-t_error	exec_parse(t_ctx *c_ref, const t_lst *toklst_ref, t_lst *cmdlst_ref);
-t_error	exec_redir(t_ctx *c_ref, t_lst *cmdlst_ref);
-t_error	exec_pipe(t_ctx *c_ref, t_lst *cmdlst_ref);
-t_error	exec_run(t_ctx*c_ref, int fd[2], t_lst *arglst_ref);
+t_error		exec(t_ctx *c_ref, const t_lst *toklst_ref, t_lst *cmdlst_ref);
+t_error		exec_parse(t_ctx *c_ref,
+				const t_lst *toklst_ref, t_lst *cmdlst_ref);
+t_error		exec_redir(t_ctx *c_ref, t_lst *cmdlst_ref);
+t_error		exec_pipe(t_ctx *c_ref, t_lst *cmdlst_ref);
+t_error		exec_run(t_ctx*c_ref, t_lst *cmdlst_ref);
 
 /*
 exec(toklst):
